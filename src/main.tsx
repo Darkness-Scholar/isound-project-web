@@ -6,12 +6,26 @@ import './index.css'
 
 import User from './pages/User/User'
 import Home from './pages/Home/Home'
+import publicRoutes from './router';
+import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="signup" element={<User />}/>
+    {publicRoutes.map((route, index) => {
+      const Page = route.component
+      const Layout = DefaultLayout
+      return (
+        <Route
+        key={index}
+        path={route.path}
+        element={
+          <Layout>
+            <Page/>
+          </Layout>
+        }/>
+      )
+    })}
     </Routes>
   </BrowserRouter>
 )

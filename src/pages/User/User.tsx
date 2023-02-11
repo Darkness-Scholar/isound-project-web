@@ -3,7 +3,6 @@ import NavBar from"../../components/NavBar"
 
 export default function User () {
     return <div>
-        <NavBar></NavBar>
-        <SideBar></SideBar>
+        <p>Hi world</p>
     </div>
 }
